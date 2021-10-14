@@ -1,0 +1,31 @@
+Why breaks the program after creating the new library in step 2 of the previous exercise?
+    After compiling the main.o object file already has a size for Data, however since the inclusion of the string member the size grew so the sizes of Data in the library and main.o object file do not match up, leading to a segmentation fault when trying to run the application.
+
+Why doesn't the program break anymore when using a pointer to the implementation?
+    Since a pointer is always the same size we can change the size of what it points to however we want, hence there is no size mismatch between the object file and the library, and the change in the size of DataImp is ok because it is compiled along with the Data interface.
+
+Assume you design a class which is published in a library which is made available to the world. You're pretty sure your class is absolutely right and complete, so there's no need for using the pimpl approach. But shit happens, and three years later you realize that you actually do need to define two additional data members in your class. How can these additional data members be added to your class without breaking the ABI?
+    If one of our data members is the size of a pointer it can be cast to a pointer and used to add new members in a pimpl approach.
+    for example if the d_value member of Data was a size_t we could do:
+
+    class DataImp;
+
+    class Data
+    {
+        size_t d_value;
+
+        public:
+            Data();
+            bool read();
+            void display() const;
+
+        private:
+            DataImp *pimpl() const;
+    };
+
+    where 'DataImp *pimpl() const' is defined as:
+
+    DataImp *Data::pimpl() const
+    {
+        return reinterpret_cast<DataImp *>(d_value);
+    }
