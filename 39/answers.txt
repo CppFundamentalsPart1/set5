@@ -1,0 +1,41 @@
+Link main.o against libdata.a and show that the program runs OK:
+    $ ../build/39/a.out < data.in
+    Object 1: value is: 1
+    Object 2: value is: 2
+    Object 3: value is: 3
+    Object 4: value is: 4
+
+    The library was created with the commands:
+    $ g++ -c -Wall -Werror -std=c++20 data/display.cpp -o ../build/39/lib/data/display.o
+    $ g++ -c -Wall -Werror -std=c++20 data/read.cpp -o ../build/39/lib/data/read.o
+    $ ar rvs ../build/39/lib/libdata.a ../build/39/lib/data/display.o ../build/39/lib/data/read.o
+
+    main.cpp was compiled using:
+    $ g++ -c -Wall -Werror -std=c++20 main.cpp -o ../build/39/main.o
+
+    and then linked to the library with:
+    $ g++ ../build/39/main.o -o ../build/39/a.out -L ../build/39/lib/ -ldata
+
+
+create a new version of the library, after uncommenting the definition of d_text in data/data.h and its use in data/read.cc. Link the new library to the existing main.o and show that the program no longer runs OK:
+    after uncommenting the lines and rebuilding only the library and linking the existing main.o to the new library we get the following output:
+    $ ../build/39/a.out < data.in
+    Segmentation fault (core dumped)
+
+
+Convert the original class to a class using a pointer to the implementation. Redo the first two steps, and show that both programs run OK:
+    running without the string member we get:
+    $ ../build/39/a.out < data.in
+    Object 1: value is: 1
+    Object 2: value is: 2
+    Object 3: value is: 3
+    Object 4: value is: 4
+
+    uncommenting the lines and recompiling the library and linking it to main.o we get
+    $ ../build/39/a.out < data.in
+    Object 1: value is: 1
+    Object 2: value is: 2
+    Object 3: value is: 3
+    Object 4: value is: 4
+
+    So even with the change in the library, the program still runs ok.
