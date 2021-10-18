@@ -42,13 +42,13 @@ pointer notation:  (*argv)++;
 ----------------------------------------------------------------------------
   main's argv;        ++argv[0];
 
-pointer notation:  ++*argv
+pointer notation:  ++*argv;
        semantics:  argv is dereferenced, yielding a char * variable. That
                    pointer value is incremented.
 ----------------------------------------------------------------------------
   main's argv;        ++argv[0][2];
 
-pointer notation:  ++*(*argv + 2)
+pointer notation:  ++*(*argv + 2);
        semantics:  argv is dereferenced, yielding a char *. To that pointer 2
                    is added, yielding the location of the 3rd character of
                    *argv's string. That location is dereferenced, yielding a
