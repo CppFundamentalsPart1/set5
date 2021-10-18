@@ -8,12 +8,18 @@ endif
 
 CXX	 = g++
 CXXFLAGS	 =  -c -Wall -Werror -std=c++20
-PROGNAME	= a.OUT
+PROGNAME	= a.out
 
 BUILD_DIR	= ../build/34/
 
 SOURCE	= \
-
+main.cpp \
+copycat/copycat2.cpp \
+copycat/copycat1.cpp \
+copycat/ntbscopy.cpp \
+copycat/duplicate.cpp \
+copycat/copycat3.cpp \
+copycat/nelements.cpp \
 
 OUT	= $(BUILD_DIR)$(PROGNAME)
 OBJS	= $(SOURCE:%.cpp=$(BUILD_DIR)%.o)
