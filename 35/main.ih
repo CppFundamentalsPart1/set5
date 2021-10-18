@@ -1,0 +1,7 @@
+#include "charcount/charcount.h"
+#include <cctype>
+#include <iostream>
+
+using namespace std;
+
+void showChar(char ch);
