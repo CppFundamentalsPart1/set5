@@ -1,7 +1,5 @@
-- if finder.cc is linked before main.cc the program runs fine, however if finder.cc is linked after main.cc the phonebook is constructed before the static s_finder is, this results in the pointer to the array of pairs is reset to pointing to 0
+Although the program apparently runs OK, there's a serious flaw in its design. What is it?
+    If finder.cc is linked before main.cc the program runs fine, however if finder.cc is linked after main.cc the phonebook is constructed before the static s_finder is, this results in the pointer to the array of pairs is reset to pointing to 0.
 
-possible fix:
-make the constructor private and add a static init function that must be called that handles initialization, also make the other members static, this ensures initilization of the phonebook happens after main is entered at which point the static s_finder is already initialized.
-
-different fix:
-define s_finder inline;
+And how would you repair the flaw?
+    The issue can be fixed by initializing s_finder inline.
