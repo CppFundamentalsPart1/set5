@@ -3,6 +3,6 @@
 extern char **environ;
 
 CopyCat::CopyCat()
-  : CopyCat(environ)
+  : CopyCat(environ)    // delegate construction to CopyCat(char **data)
 {
 }

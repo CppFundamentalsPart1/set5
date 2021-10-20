@@ -1,11 +1,7 @@
 #include "copycat.ih"
 
-void CopyCat::ntbsCopy(char *dest, char *src)
+void CopyCat::ntbsCopy(char *dest, char *src, size_t size)
 {
-    while (*src != '\0')
-    {
-        *dest = *src;
-        ++dest;
-        ++src;
-    }
+    for (size_t idx = 0; idx < size; ++idx)  // copy each char from src
+        dest[idx] = src[idx];
 }

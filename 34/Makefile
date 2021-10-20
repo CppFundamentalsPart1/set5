@@ -13,7 +13,6 @@ PROGNAME	= a.out
 BUILD_DIR	= ../build/34/
 
 SOURCE	= \
-main.cpp \
 copycat/copycat2.cpp \
 copycat/copycat1.cpp \
 copycat/ntbscopy.cpp \

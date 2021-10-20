@@ -1,5 +1,4 @@
 #include "copycat.h"
 #include <string>
-#include <iostream>
 
 using namespace std;
