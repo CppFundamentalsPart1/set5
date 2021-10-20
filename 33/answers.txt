@@ -1,15 +1,21 @@
 1. what differences exist between pointer variables and arrays;
+
     A pointer variable is a single value while an array points to the first element in a series of values
 
 2. what differences exist between pointer variables and reference variables;
+
     A pointer can be initialized as 0 (or null). A reference must be initialized on construction.
 
 3. how element [3][2] is reached
+
   a: for the variable `int array[20][30]';
+
       From the address of array, go to the offset of the 4th row (3 * 30 ints further). And then add an offset of 2 ints to get reach requested element.
 
   b: for the variable `int *pointer[20]';
+
       From the address of the pointer go to its 4th element (offset of 3 since a pointer has a size of 1). Then add to that value an offset of 2 ints to reach the requested element.
 
 4. what is meant by `pointer arithmetic';
+
     Pointer arithmetic refers to the adding or substracting of values to pointers to reach that number of elements beyond or in front of the pointer.

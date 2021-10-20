@@ -1,4 +1,5 @@
 Link main.o against libdata.a and show that the program runs OK:
+
     $ ../build/39/a.out < data.in
     Object 1: value is: 1
     Object 2: value is: 2
@@ -18,12 +19,14 @@ Link main.o against libdata.a and show that the program runs OK:
 
 
 create a new version of the library, after uncommenting the definition of d_text in data/data.h and its use in data/read.cc. Link the new library to the existing main.o and show that the program no longer runs OK:
+
     after uncommenting the lines and rebuilding only the library and linking the existing main.o to the new library we get the following output:
     $ ../build/39/a.out < data.in
     Segmentation fault (core dumped)
 
 
 Convert the original class to a class using a pointer to the implementation. Redo the first two steps, and show that both programs run OK:
+
     running without the string member we get:
     $ ../build/39/a.out < data.in
     Object 1: value is: 1
