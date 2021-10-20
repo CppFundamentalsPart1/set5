@@ -1,0 +1,10 @@
+explain.txt
+
+copycat/copycat.h
+copycat/copycat.ih
+copycat/copycat1.cpp
+copycat/copycat2.cpp
+copycat/copycat3.cpp
+copycat/ntbscopy.cpp
+copycat/nelements.cpp
+copycat/duplicate.cpp

@@ -1,6 +1,6 @@
 #include "copycat.ih"
 
-size_t CopyCat::nElements(char **arr)
+size_t CopyCat::nElements(char const *const *const arr)
 {
     size_t size = 0;
 

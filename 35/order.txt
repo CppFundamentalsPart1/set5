@@ -1,0 +1,16 @@
+explain.txt
+
+main.ih
+main.cpp
+showchar.cpp
+
+charcount/charcount.h
+charcount/charcount.ih
+charcount/count.cpp
+charcount/info.cpp
+charcount/processchar.cpp
+charcount/locate.cpp
+charcount/append.cpp
+charcount/insert.cpp
+charcount/inc.cpp
+charcount/moveelements.cpp

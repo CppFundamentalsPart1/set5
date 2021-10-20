@@ -1,0 +1,1 @@
+Convert the class Data to use the pimpl approach.

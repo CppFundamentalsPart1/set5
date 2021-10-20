@@ -1,0 +1,3 @@
+Complete the table below, by entering the empty fields of the `pointers' and `semantics' columns.
+In all cases you have to use pointer notations.
+The `semantics' column should (concisely!) describe what the rewritten statement does.

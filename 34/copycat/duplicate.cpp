@@ -1,6 +1,7 @@
 #include "copycat.ih"
 
-void CopyCat::duplicate(char **dest, char **src, size_t size)
+void CopyCat::duplicate(char **dest, char const *const *const src,
+                            size_t size)
 {
     for (size_t idx = 0; idx < size; ++idx)  // copy each ntbs from src to
     {                                        // dest

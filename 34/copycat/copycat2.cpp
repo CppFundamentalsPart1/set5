@@ -1,6 +1,6 @@
 #include "copycat.ih"
 
-CopyCat::CopyCat(int argc, char **argv)
+CopyCat::CopyCat(int argc, char const *const *const argv)
   : d_size(argc),               // initialize size and data
     d_data(new char*[argc])
 {
