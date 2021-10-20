@@ -3,14 +3,13 @@
 int main()
 {
     CharCount cc;
-    // process and count all chars
-    cout << "processed " << cc.count(cin) << " characters\n";
 
-    CharCount::CharInfo const &info = cc.info();
+    cc.count(cin); // count and process the characters from cin
 
+    CharCount::CharInfo const &info = cc.info();  // get the info
+
+    // go over each Char entry and print it and its frequency
     for (size_t idx = 0; idx != info.nCharObj; ++idx)
-    {
-        showChar(info.ptr[idx].ch);
-        cout << ": " << info.ptr[idx].count << " times\n";
-    }
+        showChar(info.ptr[idx].ch, info.ptr[idx].count);
+
 }

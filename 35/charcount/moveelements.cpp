@@ -1,7 +1,7 @@
 #include "charcount.ih"
 
-void CharCount::moveElements(Char *dest, size_t begin, size_t end)
+void CharCount::moveElements(Char *dest, size_t start, size_t end)
 {
-    for(; begin < end; ++begin)
-        *dest++ = move(d_info.ptr[begin]);
+    for (; start < end; ++start)
+        *dest++ = move(d_info.ptr[start]);  // move every element into dest
 }

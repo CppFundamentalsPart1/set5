@@ -1,6 +1,6 @@
 #include "main.ih"
 
-void showChar(char ch)
+void showChar(unsigned char ch, size_t frequency)
 {
     cout << "char ";
 
@@ -8,18 +8,20 @@ void showChar(char ch)
     {
         case '\t':
             cout << "'\\t'";
-            break;
+        break;
         case '\n':
             cout << "'\\n'";
-            break;
+        break;
         case ' ':
             cout << "' '";
-            break;
+        break;
         default:
-            if (isprint(ch))
+            if (isprint(ch))  // check char is printable
                 cout << '\'' << ch << '\'';
-            else
-                cout << static_cast<size_t>(static_cast<unsigned char>(ch));
-            break;
+            else  // otherwise print number
+                cout << static_cast<size_t>(ch);
+        break;
     }
+
+    cout << ": " << frequency << " times\n";
 }

@@ -1,5 +1,5 @@
-#ifndef _CHARCOUNT_H_
-#define _CHARCOUNT_H_
+#ifndef _CHAR_COUNT_H_
+#define _CHAR_COUNT_H_
 
 #include <iosfwd>
 
@@ -17,30 +17,41 @@ struct CharCount
         size_t nCharObj;
     };
 
-private:
-    CharInfo d_info = { 0, 0 };
+    private:
+        CharInfo d_info = { 0, 0 };
 
-    enum Action
-    {
-        APPEND,
-        INSERT,
-        INC
-    };
+        enum Action
+        {
+            APPEND,
+            INSERT,
+            INC
+        };
 
-public:
-    size_t count(std::istream &in);
+    public:
+        // count number of characters read from in, return total number of
+        // characters found
+        size_t count(std::istream &in);
 
-    CharInfo const &info() const;
+        // return const reference to d_info
+        CharInfo const &info() const;
 
-private:
-    void processChar(char ch);
-    Action locate(size_t *destIdx, char ch);
+    private:
+        // get action to do with ch (using locate) and perform the action
+        void processChar(char ch);
 
-    void append(char ch);
-    void insert(size_t idx, char ch);
-    void inc(size_t idx);
+        // get the action to do with ch, if insert or inc then destIdx is the
+        // index of where to insert or increment respectively
+        Action locate(size_t *destIdx, unsigned char ch);
 
-    void moveElements(Char *dest, size_t begin, size_t end);
+        // append ch to d_info.ptr
+        void append(char ch);
+        // insert ch into d_info.ptr at idx
+        void insert(size_t idx, char ch);
+        // increment the character in d_info.ptr at idx
+        void inc(size_t idx);
+
+        // move the elements d_info.ptr[start] to d_info.ptr[end] into dest
+        void moveElements(Char *dest, size_t start, size_t end);
 };
 
 #endif

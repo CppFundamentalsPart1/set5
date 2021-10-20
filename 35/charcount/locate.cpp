@@ -1,19 +1,24 @@
 #include "charcount.ih"
 
-CharCount::Action CharCount::locate(size_t *destIdx, char ch)
+CharCount::Action CharCount::locate(size_t *destIdx, unsigned char ch)
 {
-    for (size_t idx = 0, chVal = static_cast<unsigned char>(ch);
-         idx < d_info.nCharObj;
-         ++idx)
+    // go over each Char object in d_info
+    for (size_t idx = 0; idx < d_info.nCharObj; ++idx)
     {
-        size_t uCh = static_cast<unsigned char>(d_info.ptr[idx].ch);
+        // get unsigned value of the char
+        size_t chVal = static_cast<unsigned char>(d_info.ptr[idx].ch);
 
-        if (chVal > uCh)
+        // if ch is bigger we have not yet passed the position it should be at
+        if (ch > chVal)
             continue;
 
+        // we found the index it should be at so store it
         *destIdx = idx;
-        return chVal == uCh ? INC : INSERT;
+
+        // if values equal it exists and we increment it, else we insert it
+        return ch == chVal ? INC : INSERT;
     }
 
+    // ch was not found so we need to append it
     return APPEND;
 }

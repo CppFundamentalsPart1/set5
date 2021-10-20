@@ -2,17 +2,17 @@
 
 void CharCount::processChar(char ch)
 {
-    switch (size_t insIdx; locate(&insIdx, ch))
+    // get action to perform with ch
+    switch (size_t idx; locate(&idx, ch))
     {
         case APPEND:
-            append(ch);
-            break;
+            append(ch);  // append ch to d_info.ptr
+        break;
         case INSERT:
-            insert(insIdx, ch);
-            break;
+            insert(idx, ch);  // insert ch into d_info.ptr at idx
+        break;
         case INC:
-            inc(insIdx);
-            break;
+            inc(idx);  // increment the count of the Char in d_info.ptr at idx
+        break;
     }
 }
-
